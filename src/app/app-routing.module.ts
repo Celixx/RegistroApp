@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'correo',
     loadChildren: () => import('./correo/correo.module').then( m => m.CorreoPageModule)
   },
+  {
+    path: 'correcto',
+    loadChildren: () => import('./correcto/correcto.module').then( m => m.CorrectoPageModule)
+  },
 
 ];
 

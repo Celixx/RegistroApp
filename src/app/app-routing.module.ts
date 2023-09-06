@@ -16,11 +16,18 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
+    path: 'mi-clase',
+    loadChildren: () => import('./mi-clase/mi-clase.module').then( m => m.MiClasePageModule)
+  },
+
+  {
     path: 'correo',
     loadChildren: () => import('./correo/correo.module').then( m => m.CorreoPageModule)
   },
 
 ];
+
+
 
 @NgModule({
   imports: [

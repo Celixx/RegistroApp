@@ -27,11 +27,16 @@ const routes: Routes = [
   {
     path: 'correcto',
     loadChildren: () => import('./correcto/correcto.module').then( m => m.CorrectoPageModule)
-  },  {
+  },
+  {
     path: 'incorrecto',
     loadChildren: () => import('./incorrecto/incorrecto.module').then( m => m.IncorrectoPageModule)
   },
 
+  {
+    path: 'pregunta',
+    loadChildren: () => import('./pregunta/pregunta.module').then( m => m.PreguntaPageModule)
+  },
 
 ];
 

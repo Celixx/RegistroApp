@@ -10,7 +10,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'mi-clase',
+    loadChildren: () => import('./mi-clase/mi-clase.module').then( m => m.MiClasePageModule)
   },
+
 ];
 
 @NgModule({

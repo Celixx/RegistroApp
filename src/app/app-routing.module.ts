@@ -10,7 +10,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'correo',
+    loadChildren: () => import('./correo/correo.module').then( m => m.CorreoPageModule)
   },
+
 ];
 
 @NgModule({

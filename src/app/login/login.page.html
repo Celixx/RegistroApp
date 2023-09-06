@@ -19,18 +19,18 @@
   <ion-card class="ion-padding-vertical">
     <!-- Card Tittle -->
     <ion-card-title class="ion-text-left ion-padding-horizontal">
-      <ion-label>Login</ion-label>
+      <ion-label>Inicio de sesión con tus credenciales institucionales</ion-label>
     </ion-card-title>
 
     <form>
       <ion-card-content>
         <!-- input correo -->
         <ion-item>
-          <ion-input type="text" label="Correo Institucional" labelPlacement="floating" name="correo" placeholder="Awesome Input"></ion-input>
+          <ion-input type="text" label="Correo Institucional" labelPlacement="floating" name="correo" [(ngModel)]="usuario.correo" placeholder="cgonzalez@duocuc.cl"></ion-input>
         </ion-item>
         <!-- Input contraseña -->
         <ion-item>
-          <ion-input type="text" label="Contraseña" labelPlacement="floating" name="password" placeholder="Awesome Input"></ion-input>
+          <ion-input type="text" label="Contraseña" labelPlacement="floating" name="password" [(ngModel)]="usuario.password" placeholder="********"></ion-input>
         </ion-item>
         <!-- Boton ingresar -->
         <ion-button (click)="ingresar()" shape="block">

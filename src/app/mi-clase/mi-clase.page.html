@@ -1,7 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="titulo">
-    <ion-title >DuocUC</ion-title>
-    <ion-label>Sistema de Asistencia DUOC</ion-label>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col >
+          <ion-img class="ion-padding-horizontal ion-padding-vertical" style="max-width: 65%;" src="../../assets/images/Logo_DuocUC.svg"></ion-img>
+        </ion-col>
+        <ion-col>
+          <ion-title>
+            Sistema de Asistencia Duoc
+          </ion-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
@@ -12,5 +22,24 @@
     </ion-toolbar>
   </ion-header>
 
-  <h1 class="ion-text-center">DATOS DE LA ASIGNATURA</h1>
+  
+  <div class="contendorDatos"> 
+    <h1 class="ion-text-center">DATOS DE LA ASIGNATURA</h1>
+    
+    <ul class="listaDatos">
+      <li class="contentDatos">Sede: </li>
+      <li class="contentDatos">Sigla: </li>
+      <li class="contentDatos">Seccion: </li>
+      <li class="contentDatos">Nombre asignatura: </li>
+      <li class="contentDatos">Nombre profesor: </li>
+      <li class="contentDatos">Día: </li>
+      <li class="contentDatos">Bloque de inicio: </li>
+      <li class="contentDatos">Bloque de término: </li>
+      <li class="contentDatos">Hora de inicio</li>
+      <li class="contentDatos">Hora de término</li>
+    </ul>
+
+  </div>
+
+
 </ion-content>

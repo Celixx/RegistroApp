@@ -17,7 +17,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-align-items-center">
   <ion-title class="ion-padding-top">
     <ion-label class="ion-text-center">
       <h1>¡Bienvenido!</h1>
@@ -25,7 +25,19 @@
       <h2>Escanea el código QR para registrar tu asistencia a clases</h2>
     </ion-label>
   </ion-title>
-  
+
+  <ion-button *ngIf="!escaneando" (click)="scanQR()" fill="clear" shape="square">
+    <ion-icon slot="start" name="videocam-outline"></ion-icon>
+    Escanear QR
+  </ion-button>
+
+  <ion-button *ngIf="escaneando" (click)="stopScanQR()" fill="clear" shape="square">
+    <ion-icon slot="start" name="stop-circle-outline"></ion-icon>
+    Detener escaneo
+  </ion-button>
+
+  <video #video [hidden]="!escaneando" width="100%"></video>
+  <canvas #canvas hidden></canvas>
 </ion-content>
 
 <!-- Footer -->
@@ -35,12 +47,18 @@
       <ion-row>
         <ion-col>
           <ion-title>
-            <a href="">Inicio</a>
+            <ion-button (click)="miClaseRedirect()" fill="clear" color="warning" shape="square">
+              <ion-icon slot="start" name="book"></ion-icon>
+              Inicio
+            </ion-button>
           </ion-title>
         </ion-col>
         <ion-col>
           <ion-title>
-            <a href="">Mi Clase</a>
+            <ion-button (click)="homeRedirect()" fill="clear" color="warning" shape="square">
+              <ion-icon slot="start" name="home"></ion-icon>
+              Mi Clase
+            </ion-button>
           </ion-title>
         </ion-col>
       </ion-row>

@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { AnimationController} from '@ionic/angular';
 import { Usuario } from 'src/app/usuario';
+import { NavigationExtras } from '@angular/router';
+import jsQR, { QRCode } from 'jsqr';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +14,7 @@ import { Usuario } from 'src/app/usuario';
 export class HomePage {
 
   public usuario: Usuario;
+  public escaneando = false;
 
   constructor(private activeroute: ActivatedRoute
   , private router: Router
@@ -36,6 +39,28 @@ export class HomePage {
   }
 
   public ngOnInit(): void {
+
+  }
+
+  public miClaseRedirect(): void {
+
+  }
+
+  public homeRedirect(): void {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        usuario: this.usuario
+      }
+    };
+
+    this.router.navigate(['/mi-clase'],navigationExtras)
+  }
+
+  public scanQR(): void {
+
+  }
+
+  public stopScanQR(): void {
 
   }
 

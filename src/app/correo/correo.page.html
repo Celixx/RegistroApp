@@ -26,10 +26,10 @@
     <ion-card-content>
       
       <ion-item>
-        <ion-input name="correo" label="Correo" labelPlacement="floating" type="text"></ion-input>
+        <ion-input name="correo" label="Correo" labelPlacement="floating"[(ngModel)]="correo" type="text"></ion-input>
       </ion-item>
 
-      <ion-button size="small" color="warning" shape="block" >
+      <ion-button (click)="Recuperar()" size="small" color="warning" shape="block" >
         Recuperar Contraseña
       </ion-button>
 

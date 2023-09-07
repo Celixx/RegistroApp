@@ -6,11 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./correo.page.scss'],
 })
 export class CorreoPage implements OnInit {
+  
+  public correo: string;
 
-  constructor() { }
+  constructor() {
+    this.correo = ""
+   }
 
   ngOnInit() {
   }
   
+  public Recuperar (): void{
+    console.log(this.correo);
+
+  }
 
 }

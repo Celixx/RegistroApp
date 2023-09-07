@@ -43,6 +43,10 @@ export class LoginPage implements OnInit {
     }
   }
 
+  public recuperar(): void {
+    this.router.navigate(['/correo'])
+  }
+
   async mostrarMensaje(mensaje: string, duracion?: number) {
 
     const mensajeToast = await this.toastController.create({

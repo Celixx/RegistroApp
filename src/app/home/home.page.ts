@@ -52,7 +52,13 @@ export class HomePage {
   }
 
   public miClaseRedirect(): void {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        usuario: this.usuario
+      }
+    };
 
+    this.router.navigate(['/mi-clase'],navigationExtras)
   }
 
   public homeRedirect(): void {
@@ -62,7 +68,7 @@ export class HomePage {
       }
     };
 
-    this.router.navigate(['/mi-clase'],navigationExtras)
+    this.router.navigate(['home'],navigationExtras)
   }
 
   public async scanQR() {
@@ -96,6 +102,7 @@ export class HomePage {
     context.drawImage(this.video.nativeElement, 0, 0, w, h);
     const img: ImageData = context.getImageData(0, 0, w, h);
     let qrCode: QRCode | null = jsQR(img.data, w, h, { inversionAttempts: 'dontInvert' });
+    this.xd(qrCode);
     if (qrCode) {
       if (qrCode.data !== '') {
         this.escaneando = false;
@@ -109,6 +116,8 @@ export class HomePage {
   public mostrarDatosQROrdenados(datosQR: string): void {
     this.datosQR = datosQR;
     const objetoDatosQR = JSON.parse(datosQR);
+    console.log(objetoDatosQR);
+    // this.asistencia.setAsistencia(objetoDatosQR);
     // ----------------------------------
     // TAREA PARA COMPLETAR POR EL ALUMNO
     // ----------------------------------
@@ -124,6 +133,11 @@ export class HomePage {
   }
 
   public stopScanQR(): void {
+
+  }
+
+  public xd(lol: QRCode | null): void {
+    
 
   }
 

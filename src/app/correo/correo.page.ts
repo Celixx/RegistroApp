@@ -35,16 +35,23 @@ export class CorreoPage implements OnInit {
         }
         
       };
-
+      
       this.router.navigate(['/pregunta'],navigationExtras);
     } else {
-      
+      this.mostrarMensaje(`Correo ingresado es incorrecto`);
     }
 
     
   }
   
-  
+  async mostrarMensaje(mensaje: string, duracion?: number) {
+
+    const mensajeToast = await this.toastController.create({
+      message: mensaje,
+      duration: duracion? duracion: 3000
+    });
+    mensajeToast.present();
+  }
   
   
   

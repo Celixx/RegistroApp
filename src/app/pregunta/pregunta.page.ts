@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/usuario';
 import { NavigationExtras } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pregunta',
@@ -14,7 +15,7 @@ export class PreguntaPage implements OnInit {
   public respuesta: string;
 
   constructor(private activeroute: ActivatedRoute
-    , private router: Router) { 
+    , private router: Router, private toastController: ToastController) { 
 
       this.usuario = new Usuario('', '', '', '', '', '', 0, null);
       this.respuesta = ""
@@ -59,13 +60,21 @@ export class PreguntaPage implements OnInit {
         state: {
           usuario: this.usuario
         }
-        
       };
 
       this.router.navigate(['/correcto'],navigationExtras);
     }else{
       
+      const navigationExtras: NavigationExtras = {
+        state: {
+          usuario: this.usuario
+        }
+      };
+
+      this.router.navigate(['/incorrecto'],navigationExtras);
     }
       
   } 
+
+  
 }

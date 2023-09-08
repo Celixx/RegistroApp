@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 import { AnimationController} from '@ionic/angular';
 import { Usuario } from 'src/app/usuario';
 import { NavigationExtras } from '@angular/router';
@@ -20,6 +20,8 @@ export class HomePage {
   @ViewChild('canvas')
   private canvas!: ElementRef;
 
+  @ViewChild('titulo', { read: ElementRef }) itemTitulo!: ElementRef;
+
   public usuario: Usuario;
   public escaneando = false;
   public asistencia: Asistencia = new Asistencia();
@@ -27,7 +29,7 @@ export class HomePage {
 
   constructor(private activeroute: ActivatedRoute
   , private router: Router
-  , private alertController: AlertController
+  , private toastController: ToastController
   , private animationController: AnimationController) {
 
     this.usuario = new Usuario('', '', '', '', '', '', 0, null);
@@ -52,7 +54,14 @@ export class HomePage {
   }
 
   public miClaseRedirect(): void {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        usuario: this.usuario,
+        asistencia: this.asistencia
+      }
+    };
 
+    this.router.navigate(['/mi-clase'],navigationExtras)
   }
 
   public homeRedirect(): void {
@@ -62,7 +71,7 @@ export class HomePage {
       }
     };
 
-    this.router.navigate(['/mi-clase'],navigationExtras)
+    this.router.navigate(['home'],navigationExtras)
   }
 
   public async scanQR() {
@@ -99,32 +108,57 @@ export class HomePage {
     if (qrCode) {
       if (qrCode.data !== '') {
         this.escaneando = false;
-        this.mostrarDatosQROrdenados(qrCode.data);
+        this.mostrarQR(qrCode.data);
         return true;
       }
     }
     return false;
   }
 
-  public mostrarDatosQROrdenados(datosQR: string): void {
+  async mostrarMensaje(mensaje: string, duracion?: number) {
+
+    const mensajeToast = await this.toastController.create({
+      message: mensaje,
+      duration: duracion? duracion: 3000
+    });
+    mensajeToast.present();
+  }
+
+  public mostrarQR(datosQR: string): void {
     this.datosQR = datosQR;
     const objetoDatosQR = JSON.parse(datosQR);
-    // ----------------------------------
-    // TAREA PARA COMPLETAR POR EL ALUMNO
-    // ----------------------------------
-    // 1) Ejecutar el setter de la clase Asistencia:
-    //     this.asistencia.setAsistencia(...parametros...)
-    //    de modo que los parámetros los tome del objeto datosQR,
-    //    por ejemplo: datosQR.nombreAsignatura contiene el valor 
-    //    del nombre de la asignatura en la cual el alumno
-    //    debe quedar presente.
-    // 2) Hacer una interpolación entre las propiedades 
-    //    de "this.asistencia" y la página HTML, de modo
-    //    que la página muestre de manera ordenada estos datos.
+    this.asistencia.setAsistencia(objetoDatosQR.bloqueInicio, objetoDatosQR.bloqueTermino, objetoDatosQR.dia, objetoDatosQR.horaFin, objetoDatosQR.horaInicio, objetoDatosQR.idAsignatura, objetoDatosQR.nombreAsignatura, objetoDatosQR.nombreProfesor, objetoDatosQR.seccion, objetoDatosQR.sede);
+    this.mostrarMensaje(`Código QR leido exitosamente, dirigirse a Mi Clase para ver los detalles`, 4000);
   }
 
   public stopScanQR(): void {
-
+    this.escaneando = false;
   }
 
+  public signOut(): void {
+    this.router.navigate(['/login'])
+  }
+
+  public animateItem(elementRef: any) {
+    this.animationController
+      .create()
+      .addElement(elementRef)
+      .iterations(1)
+      .duration(600)
+      .fromTo('transform', 'translate(100%)', 'translate(0%)')
+      .play();
+  }
+
+  public ngAfterViewInit(): void {
+    if (this.itemTitulo) {
+      const animation = this.animationController
+        .create()
+        .addElement(this.itemTitulo.nativeElement)
+        .iterations(Infinity)
+        .duration(6000)
+        .fromTo('transform', 'scale(0)', 'scale(1)');
+
+      animation.play();
+    }
+  }
 }

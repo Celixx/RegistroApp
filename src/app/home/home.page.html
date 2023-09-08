@@ -6,10 +6,15 @@
         <ion-col style="max-width: 120px;">
           <ion-img class="ion-padding-horizontal ion-padding-vertical" style="max-width: 120px;" src="../../assets/images/Logo_DuocUC.svg"></ion-img>
         </ion-col>
-        <ion-col class="tituloSistema" >
-          <ion-title >
+        <ion-col class="tituloSistema" style="max-width: 300px;">
+          <ion-title #titulo style="max-width: 300px;">
             Sistema de Asistencia Duoc
           </ion-title>
+        </ion-col>
+        <ion-col>
+          <ion-button color="warning" style="max-width: 10px;" (click)="signOut()" expand="block" fill="clear" shape="round">
+            <ion-icon slot="start" name="log-out"></ion-icon>
+          </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -21,16 +26,16 @@
     <ion-label class="ion-text-center">
       <h1>¡Bienvenido!</h1>
       <p>{{ usuario.nombre }}</p>
-      <h2>Escanea el código QR para registrar tu asistencia a clases</h2>
+      <h2>Escanea el código QR <br> para registrar tu asistencia a clases</h2>
     </ion-label>
   </ion-title>
 
-  <ion-button *ngIf="!escaneando" (click)="scanQR()" fill="clear" shape="square">
+  <ion-button color="warning" class="botonQR" *ngIf="!escaneando" (click)="scanQR()" fill="clear" shape="square">
     <ion-icon slot="start" name="videocam-outline"></ion-icon>
     Escanear QR
   </ion-button>
 
-  <ion-button *ngIf="escaneando" (click)="stopScanQR()" fill="clear" shape="square">
+  <ion-button color="warning" class="botonQR" *ngIf="escaneando" (click)="stopScanQR()" fill="clear" shape="square">
     <ion-icon slot="start" name="stop-circle-outline"></ion-icon>
     Detener escaneo
   </ion-button>

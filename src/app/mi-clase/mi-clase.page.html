@@ -10,6 +10,11 @@
             Sistema de Asistencia Duoc
           </ion-title>
         </ion-col>
+        <ion-col>
+          <ion-button color="warning" style="max-width: 10px;" (click)="signOut()" expand="block" fill="clear" shape="round">
+            <ion-icon slot="start" name="log-out"></ion-icon>
+          </ion-button>
+        </ion-col>
       </ion-row>
     </ion-grid>
   </ion-toolbar>
@@ -24,19 +29,19 @@
 
   
   <div class="contendorDatos"> 
-    <h1 class="ion-text-center">DATOS DE LA ASIGNATURA</h1>
+    <h1 class="ion-text-center">Datos de la asignatura</h1>
     
     <ul class="listaDatos">
-      <li class="contentDatos">Sede: </li>
-      <li class="contentDatos">Sigla: </li>
-      <li class="contentDatos">Seccion: </li>
-      <li class="contentDatos">Nombre asignatura: </li>
-      <li class="contentDatos">Nombre profesor: </li>
-      <li class="contentDatos">Día: </li>
-      <li class="contentDatos">Bloque de inicio: </li>
-      <li class="contentDatos">Bloque de término: </li>
-      <li class="contentDatos">Hora de inicio: </li>
-      <li class="contentDatos">Hora de término: </li>
+      <li class="contentDatos">Sede: {{ asistencia.sede }}</li>
+      <li class="contentDatos">Sigla: {{ asistencia.idAsignatura }}</li>
+      <li class="contentDatos">Seccion: {{ asistencia.seccion }}</li>
+      <li class="contentDatos">Nombre asignatura: {{ asistencia.nombreAsignatura }}</li>
+      <li class="contentDatos">Nombre profesor: {{ asistencia.nombreProfesor }}</li>
+      <li class="contentDatos">Día: {{ asistencia.dia }}</li>
+      <li class="contentDatos">Bloque de inicio: {{ asistencia.bloqueInicio }}</li>
+      <li class="contentDatos">Bloque de término: {{ asistencia.bloqueTermino }}</li>
+      <li class="contentDatos">Hora de inicio: {{ asistencia.horaInicio }}</li>
+      <li class="contentDatos">Hora de término: {{ asistencia.horaFin }}</li>
     </ul>
 
   </div>

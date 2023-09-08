@@ -23,14 +23,14 @@
 
   <ion-card-content>
     
-    <h3>Ana Torres</h3>
-    <h3>¿Cual es tu animal favorito?</h3>
+    <h3>{{ usuario.nombre }} <br>{{ usuario.apellido }}</h3>
+    <h3>{{usuario.preguntaSecreta}}</h3>
 
     <ion-item>
-      <ion-input name="respuesta" label="Escribe aquí tu respuesta" labelPlacement="floating" type="text"></ion-input>
+      <ion-input name="respuesta" label="Escribe aquí tu respuesta" labelPlacement="floating"[(ngModel)]="respuesta" type="text"></ion-input>
     </ion-item>
 
-    <ion-button size="small" color="warning" shape="block" >
+    <ion-button (click)="respuestaPregunta()"size="small" color="warning" shape="block"  >
       Recuperar Contraseña
     </ion-button>
 

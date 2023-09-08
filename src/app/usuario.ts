@@ -120,5 +120,11 @@ export class Usuario extends Persona {
     public validarUsuario(): string {
       return this.validarCorreo() || this.validarPassword() || this.validarCredenciales();
     }
+
+    public buscarUsuarioCorreo(correo: string): Usuario | undefined {
+      const nived: Usuario | undefined = this.listaUsuariosValidos().find(
+        usu => usu.correo === correo);
+      return nived;
+    }
   
   }

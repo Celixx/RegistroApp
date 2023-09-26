@@ -1,0 +1,14 @@
+ion-content.background{
+    --background: #fff url("../../assets/images/fondo.jpg") no-repeat center center / cover;
+}
+
+.flex-align {
+
+    display: flex;
+    align-items: stretch;
+}
+
+.gray-opaque {
+    background-color: rgba(30,30,30,.9);
+    
+}

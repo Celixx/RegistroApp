@@ -1,56 +1,57 @@
-<ion-content [fullscreen]="true">
-
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col>
-        <ion-img class="ion-padding-horizontal ion-padding-vertical" style="width: 500px;" src="../../assets/images/Logo_DuocUC.svg"></ion-img>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-title class="ion-text-center ion-padding-vertical">
-          <h1>Sistema de Asistencia DuocUC</h1>
-        </ion-title>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-content [fullscreen]="true" class="background">
+  <div class="header">
+    <ion-grid fixed class="gray-opaque">
+      <ion-row>
+        <ion-col>
+          <ion-img class="ion-padding-horizontal ion-padding-vertical"
+            src="../../assets/images/Logo_DuocUC.svg"></ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-title class="ion-text-center ion-padding-vertical">
+            <h1>Sistema de Asistencia DuocUC</h1>
+          </ion-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 
   <div class="ion-padding-vertical">
-    <ion-card class="ion-text-center ion-padding-vertical">
-      
-  
-    <ion-card-title class="ion-text-center" >
-      <!-- Caja que tiene todos los contenidos dentro -->
+    <ion-card class="ion-text-center ion-padding-vertical gray-opaque">
+      <ion-card-title class="ion-text-center">
+        <!-- Caja que tiene todos los contenidos dentro -->
+        <ion-label>
+          <h2>Recuperar contraseña</h2>
+          <br>
+
+        </ion-label>
+      </ion-card-title>
+
+      <form>
+
+        <ion-card-content>
+
+          <ion-row>
+            <ion-col class="correcto">
+              <ion-img class="ion-padding-horizontal ion-padding-vertical" style="width: 200px;"
+                src="../../assets/images/Ok-bro.svg"></ion-img>
+            </ion-col>
+          </ion-row>
+
+          <br>
+          <h2>Tu contraseña es:</h2>
+        </ion-card-content>
+
+        <h1>{{ usuario.password }}</h1>
+
+      </form>
+
       <ion-label>
-        <h2>Recuperar contraseña</h2>
         <br>
-
+        <a routerLink="">Iniciar sesión</a>
       </ion-label>
-    </ion-card-title>
-  
-    <form>
-  
-      <ion-card-content>
-        
-        <ion-row>
-          <ion-col class="correcto">
-            <ion-img class="ion-padding-horizontal ion-padding-vertical" style="width: 200px;" src="../../assets/images/Ok-bro.svg"></ion-img>
-          </ion-col>
-        </ion-row>
-        
-        <br>
-        <h2>Tu contraseña es:</h2>
-      </ion-card-content>
-      
-      <h1>{{ usuario.password }}</h1>
-
-    </form>
-  
-    <ion-label>
-      <br>
-      <a routerLink="">Iniciar sesión</a>
-    </ion-label>
-  </ion-card>
+    </ion-card>
   </div>
-  
-  </ion-content>
+
+</ion-content>

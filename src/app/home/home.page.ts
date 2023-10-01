@@ -128,7 +128,15 @@ export class HomePage {
     this.datosQR = datosQR;
     const objetoDatosQR = JSON.parse(datosQR);
     this.asistencia.setAsistencia(objetoDatosQR.bloqueInicio, objetoDatosQR.bloqueTermino, objetoDatosQR.dia, objetoDatosQR.horaFin, objetoDatosQR.horaInicio, objetoDatosQR.idAsignatura, objetoDatosQR.nombreAsignatura, objetoDatosQR.nombreProfesor, objetoDatosQR.seccion, objetoDatosQR.sede);
-    this.mostrarMensaje(`Código QR leido exitosamente, dirigirse a Mi Clase para ver los detalles`, 4000);
+    const navigationExtras: NavigationExtras = {
+      state: {
+        usuario: this.usuario,
+        asistencia: this.asistencia
+      }
+    };
+
+    this.router.navigate(['/mi-clase'],navigationExtras)
+    this.mostrarMensaje(`Código QR leido exitosamente`, 2000);
   }
 
   public stopScanQR(): void {

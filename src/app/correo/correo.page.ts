@@ -38,7 +38,7 @@ export class CorreoPage implements OnInit {
       
       this.router.navigate(['/pregunta'],navigationExtras);
     } else {
-      this.mostrarMensaje(`Correo ingresado es incorrecto`);
+      this.router.navigate(['/incorrecto']);
     }
 
     

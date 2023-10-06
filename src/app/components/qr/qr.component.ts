@@ -1,3 +1,5 @@
+
+import { IonicModule } from '@ionic/angular';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
@@ -8,11 +10,11 @@ import { Asistencia } from 'src/app/asistencia';
 import jsQR, { QRCode } from 'jsqr';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-qr',
+  templateUrl: './qr.component.html',
+  styleUrls: ['./qr.component.scss'],
 })
-export class HomePage {
+export class QrComponent  implements OnInit {
 
   @ViewChild('video')
   private video!: ElementRef;
@@ -28,9 +30,9 @@ export class HomePage {
   public datosQR: string = '';
 
   constructor(private activeroute: ActivatedRoute
-  , private router: Router
-  , private toastController: ToastController
-  , private animationController: AnimationController) {
+    , private router: Router
+    , private toastController: ToastController
+    , private animationController: AnimationController) { 
 
     this.usuario = new Usuario('', '', '', '', '', '', 0, null);
 
@@ -43,15 +45,13 @@ export class HomePage {
           return;
         }
       }
-      this.router.navigate(['/login']);
+      // this.router.navigate(['/login']);
 
     });
 
   }
 
-  public ngOnInit(): void {
-
-  }
+  ngOnInit() {}
 
   public miClaseRedirect(): void {
     const navigationExtras: NavigationExtras = {
@@ -170,8 +170,6 @@ export class HomePage {
     }
   }
 
-  segmentChanged(event: any) {
-    this.router.navigate(['home/' + event.detail.value])
-  }
+
 
 }

@@ -38,7 +38,7 @@ export class LoginPage implements OnInit {
         // Mensaje toast
         this.mostrarMensaje(`Inicio de sesión exitoso, Bienvenido(a) ${usuarioLog.nombre} ${usuarioLog.apellido}`);
         // Redirect
-        this.router.navigate(['/home'],navigationExtras)
+        this.router.navigate(['/home/qr'],navigationExtras)
       }
     }
   }

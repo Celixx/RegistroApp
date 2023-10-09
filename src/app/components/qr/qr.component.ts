@@ -8,6 +8,7 @@ import { Usuario } from 'src/app/usuario';
 import { NavigationExtras } from '@angular/router';
 import { Asistencia } from 'src/app/asistencia';
 import jsQR, { QRCode } from 'jsqr';
+import { HomePage } from 'src/app/home/home.page';
 
 @Component({
   selector: 'app-qr',
@@ -32,7 +33,8 @@ export class QrComponent  implements OnInit {
   constructor(private activeroute: ActivatedRoute
     , private router: Router
     , private toastController: ToastController
-    , private animationController: AnimationController) { 
+    , private animationController: AnimationController
+    , private homePage: HomePage) { 
 
     this.usuario = new Usuario('', '', '', '', '', '', 0, null);
 
@@ -60,8 +62,7 @@ export class QrComponent  implements OnInit {
         asistencia: this.asistencia
       }
     };
-
-    this.router.navigate(['/mi-clase'],navigationExtras)
+    this.router.navigate(['/mi-clase'],navigationExtras);
   }
 
   public homeRedirect(): void {
@@ -71,7 +72,7 @@ export class QrComponent  implements OnInit {
       }
     };
 
-    this.router.navigate(['home'],navigationExtras)
+    this.router.navigate(['home'],navigationExtras);
   }
 
   public async scanQR() {
@@ -134,8 +135,8 @@ export class QrComponent  implements OnInit {
         asistencia: this.asistencia
       }
     };
-
-    this.router.navigate(['/mi-clase'],navigationExtras)
+    // this.homePage.segmentChanged('mi-clase');
+    this.router.navigate(['/home/mi-clase'],navigationExtras)
     this.mostrarMensaje(`Código QR leido exitosamente`, 2000);
   }
 

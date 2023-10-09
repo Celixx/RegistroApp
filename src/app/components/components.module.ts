@@ -4,6 +4,7 @@ import { QrComponent } from './qr/qr.component';
 import { MiClaseComponent } from './mi-clase/mi-clase.component';
 import { ForoComponent } from './foro/foro.component';
 import { IonicModule } from '@ionic/angular';
+import { MisDatosComponent } from './mis-datos/mis-datos.component';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { IonicModule } from '@ionic/angular';
     QrComponent,
     MiClaseComponent,
     MiClaseComponent,
-    ForoComponent
+    ForoComponent,
+    MisDatosComponent
   ],
   imports: [
     CommonModule, IonicModule
@@ -20,7 +22,8 @@ import { IonicModule } from '@ionic/angular';
     QrComponent,
     MiClaseComponent,
     MiClaseComponent,
-    ForoComponent
+    ForoComponent,
+    MisDatosComponent
   ]
 })
 export class ComponentsModule { }

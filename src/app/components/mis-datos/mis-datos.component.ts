@@ -11,4 +11,7 @@ export class MisDatosComponent  implements OnInit {
 
   ngOnInit() {}
 
+  public guardar(): void {}
+
+  public cerrarSesion(): void {}
 }

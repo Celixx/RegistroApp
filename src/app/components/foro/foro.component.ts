@@ -11,4 +11,7 @@ export class ForoComponent  implements OnInit {
 
   ngOnInit() {}
 
+  public limpiar(): void {}
+
+  public publicar(): void {}
 }

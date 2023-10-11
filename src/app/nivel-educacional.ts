@@ -17,7 +17,7 @@ export class NivelEducacional {
     }
   
     public static getNivelesEducacionales(): NivelEducacional[] {
-      const nived = [];
+      const nived: Array<NivelEducacional> = [];
       nived.push(new NivelEducacional(1, 'Sin nivel educacional'));
       nived.push(new NivelEducacional(2, 'Básica incompleta'));
       nived.push(new NivelEducacional(3, 'Básica completa'))

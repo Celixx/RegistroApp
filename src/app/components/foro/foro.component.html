@@ -6,11 +6,9 @@
     <!-- Publicador -->
     <ion-list>
       <ion-item>
-        <ion-select placeholder="Selecciona tu usuario">
+        <ion-select placeholder="Selecciona tu usuario" [(ngModel)]="selectedUserId" (ngModelChange)="cambiarUsuario($event)" [ngModelOptions]="{standalone: true}">
           <div slot="label">Publicador</div>
-          <ion-select-option value="apple">Apple</ion-select-option>
-          <ion-select-option value="banana">Banana</ion-select-option>
-          <ion-select-option value="orange">Orange</ion-select-option>
+          <ion-select-option *ngFor="let u of usuarios" [value]="u.id">{{ u.name }}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
@@ -41,4 +39,26 @@
   </div>
 
   <ion-card-title>Publicaciones recientes</ion-card-title>
+
+  <ion-card *ngFor="let p of publicaciones; let i=index; trackBy: getIdentificadorItemPublicacion">
+
+    <ion-card-header>
+      <h6>(Publicación #{{p.id}}) {{p.name}}</h6>
+      <h4>{{p.title}}</h4>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{p.body}}
+    </ion-card-content>
+
+    <ion-button (click)="editarPublicacion(p)">
+      <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+    </ion-button>
+
+    <ion-button (click)="eliminarPublicacion(p)">
+      <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+    </ion-button>
+
+  </ion-card>
+
 </ion-card>

@@ -42,7 +42,7 @@ export class Usuario extends Persona {
     }
   
     public listaUsuariosValidos(): Usuario[] {
-      const lista = [];
+      const lista: Array<Usuario> = [];
       lista.push(new Usuario(
           'sin.datos@duocuc.cl'
         , '1234'

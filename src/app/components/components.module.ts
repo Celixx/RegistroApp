@@ -5,6 +5,7 @@ import { MiClaseComponent } from './mi-clase/mi-clase.component';
 import { ForoComponent } from './foro/foro.component';
 import { IonicModule } from '@ionic/angular';
 import { MisDatosComponent } from './mis-datos/mis-datos.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { MisDatosComponent } from './mis-datos/mis-datos.component';
     MisDatosComponent
   ],
   imports: [
-    CommonModule, IonicModule
+    CommonModule, IonicModule, FormsModule
   ],
   exports: [
     QrComponent,
